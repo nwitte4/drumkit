@@ -17,7 +17,25 @@ const keys = document.querySelectorAll('.key');
 keys.forEach(key => key.addEventListener('transitionend', removeTransition));
 
 var button = document.getElementById("play-music");
+var button2 = document.getElementById("keep-playing");
+var button3 = document.getElementById("stop-playing");
 
 button.addEventListener('click', function(){
-  console.log(keys);
+  const sounds = document.querySelectorAll('audio');
+  let num = Math.floor((Math.random() * 10));
+  sounds[num].play();
 });
+
+function myTimer() {
+  const sounds = document.querySelectorAll('audio');
+  sounds[Math.floor((Math.random() * 10))].play();
+}
+
+function stopTimer() {
+  clearInterval(myVar);
+}
+
+button2.addEventListener('click', function(){
+  myVar = setInterval(function(){ myTimer() }, 1000);
+});
+button3.addEventListener('click', stopTimer);
