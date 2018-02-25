@@ -26,9 +26,15 @@ button.addEventListener('click', function(){
   sounds[num].play();
 });
 
+let myVar;
+
 function myTimer() {
   const sounds = document.querySelectorAll('audio');
-  sounds[Math.floor((Math.random() * 10))].play();
+  let sound = sounds[Math.floor((Math.random() * 10))];
+  let code = sound.getAttribute("data-key");
+  const key = document.querySelector(`.key[data-key="${code}"]`);
+  sound.play();
+  key.classList.add('playing');
 }
 
 function stopTimer() {
@@ -37,5 +43,9 @@ function stopTimer() {
 
 button2.addEventListener('click', function(){
   myVar = setInterval(function(){ myTimer() }, 1000);
+  button2.disabled = true;
 });
-button3.addEventListener('click', stopTimer);
+button3.addEventListener('click', function (){
+  stopTimer();
+  button2.disabled = false;
+});
