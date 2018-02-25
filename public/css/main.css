@@ -1,0 +1,33 @@
+body {
+  background: url('http://edgetulsa.com/wp-content/uploads/2015/07/crowd-at-concert-2.jpg');
+}
+
+.keys {
+  text-align: center;
+  margin-top: 20%;
+}
+
+.key {
+  border: 3px solid black;
+  display: inline-block;
+  padding: 20px;
+  transition:all 0.07s;
+  width: 3%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.playing {
+  transform: scale(1.1);
+  border-color: yellow;
+  box-shadow: 0 0 10px yellow;
+}
+
+kbd {
+  display: block;
+  font-size: 200%;
+}
+
+span {
+  color: yellow;
+  font-size: 80%;
+}
